@@ -1,18 +1,19 @@
 services:
-  container_name: finance_mysql_database
-  image: mysql:8.0
-  ports:
-  - "17017:3306"
-  restart: always
-  environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: finance_data
-      MYSQL_USER: user1
-      MYSQL_PASSWORD: user1
-  volumes:
-  - finance_mysql_database:/var/lib/mysql
-  networks:
-  - finance_network
+  mysql-database:
+    container_name: finance_mysql_database
+    image: mysql:8.0
+    ports:
+    - "17017:3306"
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: root123
+        MYSQL_DATABASE: finance_data
+        MYSQL_USER: user1
+        MYSQL_PASSWORD: user1
+    volumes:
+    - finance_mysql_database:/var/lib/mysql
+    networks:
+    - finance_network
 
 
 
