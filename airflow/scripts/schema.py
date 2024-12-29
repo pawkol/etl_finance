@@ -18,10 +18,10 @@ def tableCreation():
         cursor.execute(
             f"""CREATE TABLE IF NOT EXISTS currency_data_{x}
             (
-            id AUTO_INCREMENT PRIMARY KEY INT,
-            date DATE,
-            hour TIME,
-            exchange_rate FLOAT
+                id AUTO_INCREMENT PRIMARY KEY INT,
+                date DATE,
+                hour TIME,
+                exchange_rate FLOAT
             )
             """
             )
