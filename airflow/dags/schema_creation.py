@@ -1,5 +1,4 @@
 from airflow import DAG
-from airflow.decorators import task
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.bash_operator import BashOperator
 from datetime import datetime, timedelta 
