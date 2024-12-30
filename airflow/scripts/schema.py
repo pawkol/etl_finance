@@ -1,13 +1,7 @@
 import mysql.connector
+from config import DB_CONFIG
+from config import currency
 
-DB_CONFIG = {
-      "host" : "mysql_database",
-      "user" : "user1",
-      "password" : "user1",
-      "database" : "finance_data"
-}
-
-currency = {"PLN_to_USD", "PLN_to_EUR", "EUR_to_USD"}
 
 def tableCreation():
     connection = mysql.connector.connect(**DB_CONFIG)
