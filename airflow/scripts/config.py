@@ -1,7 +1,7 @@
 # DB_CONFIG
 
 DB_CONFIG = {
-      "host" : "mysql_database",
+      "host" : "finance_mysql_database",
       "user" : "user1",
       "password" : "user1",
       "database" : "finance_data"

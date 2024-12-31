@@ -11,7 +11,7 @@ services:
         MYSQL_USER: user1
         MYSQL_PASSWORD: user1
     volumes:
-    - finance_mysql_database:/var/lib/mysql
+    - finance-db-mysql-volume:/var/lib/mysql
     networks:
     - finance_network
 
