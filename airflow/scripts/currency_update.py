@@ -76,11 +76,11 @@ def load(db_config, transformed_data):
 def main():
 
     API_URL = "https://openexchangerates.org/"
-    API_KEY = "4e82e0196b8244cbbe1c7fce6442353e"     # paste your api key
+    API_KEY = "4e82e0xwxsq5d4s5d4d5s4qe2ce6442353e"     # paste your api key
 
 
     try:
-        raw_data = extract(API_URL, API_KEY, x)
+        raw_data = extract(API_URL, API_KEY)
         finance_data = transform(raw_data)
         load(DB_CONFIG,finance_data)
 
