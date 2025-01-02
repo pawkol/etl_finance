@@ -3,16 +3,18 @@ import mysql.connector
 from datetime import datetime
 from config import DB_CONFIG
 from config import currency
+import json
 
 
 def extract(api_url, api_key):
     print ("extract")
 
     params = {
-        'appid': api_key,
-        'units': 'metric'
+        'app_id': api_key
     }
     response = requests.get(api_url, params=params, verify=False)
+    print(f"Response status code: {response.status_code}")
+    print(f"Response text: {response.text}")  
     response.raise_for_status()
 
     return response.json()
@@ -21,13 +23,11 @@ def extract(api_url, api_key):
 
 
 def transform(raw_data):
-    """
-    Przekształca dane w strukturę gotową do załadowania do bazy danych.
-    """
+
     print("Transforming data...")
     transformed_data = []
 
-    # Przetwarzanie danych na podstawie `currency`
+
     for pair in currency:
         base, target = pair.split("_to_")
         try:
@@ -75,12 +75,19 @@ def load(db_config, transformed_data):
 
 def main():
 
-    API_URL = "https://openexchangerates.org/"
-    API_KEY = "4e82e0xwxsq5d4s5d4d5s4qe2ce6442353e"     # paste your api key
+    API_URL = "https://openexchangerates.org/api/latest.json"
+    API_KEY = "5af7df89c019436daa282d26262b9526"     # paste your api key
 
 
     try:
         raw_data = extract(API_URL, API_KEY)
+
+        with open('raw_data.json', 'w') as file:
+             json.dump(raw_data, file, indent=4)
+
+
+
+
         finance_data = transform(raw_data)
         load(DB_CONFIG,finance_data)
 
