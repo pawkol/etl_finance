@@ -76,7 +76,7 @@ def load(db_config, transformed_data):
 def main():
 
     API_URL = "https://openexchangerates.org/api/latest.json"
-    API_KEY = "5af7df89c019436daa282d26262b9526"     # paste your api key
+    API_KEY = "xxxxxx"     # paste your api key
 
 
     try:
